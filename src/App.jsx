@@ -134,6 +134,100 @@ const testimonials = [
   { name: "Marcus T.", car: "2008 BMW 328i", review: "DM'd @tornado_mk4 before ordering because I wasn't sure about the fitment in my E90. Got a same-day reply with exactly what I needed. The radio fits clean, no gaps, and the Bluetooth audio quality is surprisingly good for calls and music.", rating: 5 },
 ];
 
+const guides = [
+  {
+    slug: "does-carplay-work-with-any-car",
+    title: "Does Apple CarPlay Work With Any Car?",
+    excerpt: "Apple CarPlay works in most vehicles with a double DIN opening. Here's how to check if your car is compatible and what you might need for a clean install.",
+    category: "Fitment",
+    readTime: "4 min",
+    body: [
+      "Apple CarPlay doesn't require a brand-new car. It works in most vehicles with a standard double DIN radio opening — that's the roughly 7-inch wide by 4-inch tall dash opening found in most cars built since the early 2000s.",
+      "The easiest way to check your fitment is to measure your current radio opening or look up your vehicle's factory radio size. Most Hondas, Toyotas, Volkswagens, BMWs, and domestic trucks from 2000 onward use a double DIN opening.",
+      "If your car has a single DIN opening (about 2 inches tall), you'll need a dash kit to fill the extra space. Many aftermarket kits include these, but it's worth confirming before ordering.",
+      "Factory premium sound systems (like Harman Kardon, Bose, or Beats) may need a special harness adapter to integrate with an aftermarket radio. These are usually available for most popular vehicles.",
+      "The bottom line: if your car has a double DIN opening and you're okay with a basic wiring harness swap, CarPlay is a straightforward upgrade. Use our fitment checker above to confirm your specific vehicle.",
+    ],
+  },
+  {
+    slug: "carplay-vs-android-auto",
+    title: "Apple CarPlay vs Android Auto: Which One Do You Need?",
+    excerpt: "Both systems mirror your phone to your car's screen, but they work differently. Here's what to know before choosing your next radio upgrade.",
+    category: "Buying Guide",
+    readTime: "5 min",
+    body: [
+      "Apple CarPlay and Android Auto do the same basic thing — they put your phone's apps on your car's touchscreen for safer driving. But they're built for different phones.",
+      "CarPlay is for iPhone users. It gives you a simplified iOS-style interface with Maps, Music, Messages, and phone calls. It works wired or wirelessly depending on the radio.",
+      "Android Auto is for Android users. It gives you Google Maps, Google Assistant, Spotify, and other apps in a driver-friendly layout. It also works wired or wirelessly.",
+      "Most modern aftermarket radios support both systems, so you don't have to choose. If you switch phones later, the radio still works.",
+      "The main difference is the navigation app. CarPlay defaults to Apple Maps (though Google Maps and Waze are supported too). Android Auto uses Google Maps.",
+      "For most buyers, the choice comes down to which phone you carry. Either way, a modern touchscreen radio with both systems gives you the best of both worlds.",
+    ],
+  },
+  {
+    slug: "how-to-install-double-din-radio",
+    title: "How to Install a Double DIN Radio: Step by Step",
+    excerpt: "Installing a double DIN radio is a weekend project most people can handle. Here's what you'll need and what to expect during the install.",
+    category: "Installation",
+    readTime: "6 min",
+    body: [
+      "Installing a double DIN radio is one of the most common DIY car upgrades. Most people with basic tools can handle it in 1-2 hours.",
+      "What you'll need: a trim removal tool (or flathead screwdriver with a cloth), a socket set (usually 10mm), wire strippers, and electrical tape or heat shrink tubing.",
+      "Step 1: Disconnect the car battery. Always do this first to avoid short circuits or airbag warnings.",
+      "Step 2: Remove the factory radio trim. Most clips out gently with a trim tool. Some vehicles have screws hidden behind the ashtray or cup holders.",
+      "Step 3: Remove the factory radio bolts and slide the old unit out. Take a photo of the wiring before disconnecting anything.",
+      "Step 4: Connect the new wiring harness. Most aftermarket radios use a universal harness that connects to your car's factory plug. Vehicle-specific harnesses are available for a plug-and-play experience.",
+      "Step 5: Slide the new radio into the dash, secure with brackets, and reconnect the battery. Test everything before putting the trim back.",
+      "If you're not comfortable with wiring, a local car audio shop can usually install a double DIN radio for $50-150 depending on the area.",
+    ],
+  },
+  {
+    slug: "best-carplay-radio-for-volkswagen-mk4",
+    title: "Best CarPlay Radio for Volkswagen MK4 Jetta & Golf",
+    excerpt: "The MK4 platform is one of the most popular cars for aftermarket radio upgrades. Here's what to look for when choosing a CarPlay radio for your MK4.",
+    category: "Vehicle-Specific",
+    readTime: "5 min",
+    body: [
+      "The Volkswagen MK4 platform (Jetta, Golf, GTI, GLI, New Beetle) is one of the most popular cars for aftermarket radio upgrades. The factory radios in these cars are showing their age, and a modern CarPlay upgrade completely transforms the interior.",
+      "MK4s use a double DIN opening, so most modern touchscreen radios fit without modification. The main consideration is the dash kit — you'll want a kit that fills the gaps around the new radio for a factory-looking fit.",
+      "Wiring harness adapters for the MK4 are widely available and make the install plug-and-play. No cutting factory wires required.",
+      "One thing to watch: some MK4s have a factory amplifier in the trunk. If your car has the premium sound system, you'll need a harness that integrates with the amp or bypass it.",
+      "Backup camera integration is a big upgrade for MK4s. Most of these cars never had a factory camera, so adding one with a new radio is a huge safety improvement.",
+      "For MK4 owners, the upgrade path is well-documented and parts are affordable. It's one of the easiest cars to get a clean, modern CarPlay setup in.",
+    ],
+  },
+  {
+    slug: "carplay-radio-backup-camera-guide",
+    title: "How to Set Up a Backup Camera With Your CarPlay Radio",
+    excerpt: "Adding a backup camera to an older car is one of the safest upgrades you can make. Here's how it works with a modern CarPlay radio.",
+    category: "Installation",
+    readTime: "4 min",
+    body: [
+      "A backup camera is one of the most practical upgrades for any car, especially older models that never had a factory camera. Most modern CarPlay radios include a camera input.",
+      "The camera mounts near your license plate or rear bumper. Most aftermarket cameras are universal and fit any vehicle with a clean mounting surface.",
+      "The camera cable runs from the rear of the car to the radio. In most sedans and hatchbacks, you can route it through the trunk lining and under the door sill trim.",
+      "When you shift into reverse, the radio automatically switches to the camera feed. When you shift back to drive, it returns to CarPlay or Android Auto.",
+      "Most backup camera kits include everything you need: the camera, a long cable, and mounting hardware. Some cameras include parking guide lines that adjust with your steering wheel.",
+      "If your CarPlay radio package includes a backup camera, it's already matched to the radio's input. No extra adapters needed.",
+    ],
+  },
+  {
+    slug: "carplay-vs-bluetooth",
+    title: "Why CarPlay Is Better Than Bluetooth Alone",
+    excerpt: "Bluetooth audio is fine for music, but CarPlay gives you navigation, messaging, and a full app interface. Here's why it's worth the upgrade.",
+    category: "Buying Guide",
+    readTime: "4 min",
+    body: [
+      "If your car already has Bluetooth, you might wonder if CarPlay is worth it. The short answer: yes, especially if you use navigation or messaging in the car.",
+      "Bluetooth audio is one-way: music and phone calls. You still have to look at your phone for maps, texts, and app controls. That's the dangerous part.",
+      "CarPlay puts everything on your car's touchscreen. Maps with turn-by-turn directions, music controls, message previews, and Siri or Google Assistant voice control — all without touching your phone.",
+      "The safety difference is real. Navigation on a phone mounted to your windshield is distracting. A 7-inch screen at eye level in your dash is much better.",
+      "CarPlay also supports more apps than basic Bluetooth: podcast apps, audiobooks, WhatsApp, Waze, Google Maps, Spotify, and more.",
+      "If your car is from 2010 or earlier, it probably doesn't have Bluetooth either. A CarPlay radio gives you both Bluetooth and the full smart interface in one upgrade.",
+    ],
+  },
+];
+
 const nextSteps = [
   { icon: "🚗", title: "Vehicle-specific fitment", text: "Your year, make, and model are checked before the order is fulfilled." },
   { icon: "🧩", title: "Matched parts", text: "The radio, bezel, dash kit, and harness are matched around your vehicle when needed." },
@@ -245,6 +339,7 @@ export default function App() {
           <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             <a href="#about" className="transition hover:text-blue-600">About Me</a>
             <a href="#products" className="transition hover:text-blue-600">Products</a>
+            <a href="#guides" className="transition hover:text-blue-600">Guides</a>
             <a href="#specs" className="transition hover:text-blue-600">Specs</a>
             <a href="#checkout" className="transition hover:text-blue-600">Checkout</a>
             <a href="#faq" className="transition hover:text-blue-600">FAQ</a>
@@ -672,6 +767,48 @@ export default function App() {
               <p className="text-sm leading-6 text-slate-600">{testimonial.review}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="guides" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-wide text-blue-600">Buying Guides</p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Everything you need to know before upgrading your car radio.</h2>
+          <p className="mt-4 text-slate-600">Real guides on fitment, installation, and choosing the right CarPlay or Android Auto setup for your vehicle.</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {guides.map((guide) => (
+            <article key={guide.slug} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70">
+              <div className="mb-4 flex items-center gap-2">
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-700">{guide.category}</span>
+                <span className="text-xs text-slate-400">{guide.readTime} read</span>
+              </div>
+              <h3 className="text-lg font-black text-slate-950">{guide.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{guide.excerpt}</p>
+              <div className="mt-4 space-y-2">
+                {guide.body.slice(0, 2).map((paragraph, i) => (
+                  <p key={i} className="text-xs leading-5 text-slate-500">{paragraph}</p>
+                ))}
+              </div>
+              <a href="#checkout" className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-blue-600 transition hover:text-blue-800">
+                Shop CarPlay Radios →
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-[2rem] border border-blue-200 bg-blue-50 p-6 md:p-8">
+          <div className="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <h3 className="text-2xl font-black text-slate-950">Ready to upgrade your car?</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-700">Check your vehicle fitment and order a complete CarPlay / Android Auto radio kit with backup camera included.</p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a href="#fitment-checker" className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">Check Fitment</a>
+              <a href="#checkout" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600">Order Now</a>
+            </div>
+          </div>
         </div>
       </section>
 
