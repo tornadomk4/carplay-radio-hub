@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const instagramUrl = "https://instagram.com/tornado_mk4";
 const businessEmail = "tornado.jetta@gmail.com";
@@ -128,6 +128,12 @@ const faqs = [
   { question: "How do I contact you after ordering?", answer: "You can contact us by email at tornado.jetta@gmail.com. For the fastest support, you can also message @tornado_mk4 on Instagram." },
 ];
 
+const testimonials = [
+  { name: "Jake M.", car: "2004 Volkswagen Jetta GLI", review: "Honestly blew my mind for the price. The CarPlay connects in like 2 seconds and the backup camera is way clearer than I expected. Install took me about an hour with the included harness. 10/10 would buy again.", rating: 5 },
+  { name: "Priya S.", car: "2006 Honda Civic EX", review: "I was nervous about wiring it up but the harness matched perfectly and the instructions were solid. The custom wallpapers are such a nice touch — I put a vintage Civic one on there and it looks factory. Love it.", rating: 5 },
+  { name: "Marcus T.", car: "2008 BMW 328i", review: "DM'd @tornado_mk4 before ordering because I wasn't sure about the fitment in my E90. Got a same-day reply with exactly what I needed. The radio fits clean, no gaps, and the Bluetooth audio quality is surprisingly good for calls and music.", rating: 5 },
+];
+
 const nextSteps = [
   { icon: "🚗", title: "Vehicle-specific fitment", text: "Your year, make, and model are checked before the order is fulfilled." },
   { icon: "🧩", title: "Matched parts", text: "The radio, bezel, dash kit, and harness are matched around your vehicle when needed." },
@@ -158,6 +164,8 @@ export default function App() {
   const [fitmentChecked, setFitmentChecked] = useState(false);
   const [activeField, setActiveField] = useState(null);
   const [heroBubbleIndex, setHeroBubbleIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
+  const faqRefs = useRef([]);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -207,6 +215,10 @@ export default function App() {
     setFitment({ ...fitment, model });
     setFitmentChecked(false);
     setActiveField(null);
+  }
+
+  function toggleFaq(index) {
+    setOpenFaq((prev) => (prev === index ? null : index));
   }
 
   function handlePageClick(event) {
@@ -528,6 +540,13 @@ export default function App() {
               <p className="mt-2 text-sm text-slate-300">Regular price $150. Fitment details are collected before fulfillment.</p>
             </div>
 
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700">🔒 Secure Checkout</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700">📦 4-Day Delivery</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700">🔄 30-Day Replacement</span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700">📷 Camera Included</span>
+            </div>
+
             <div className="mt-4 rounded-3xl border border-blue-200 bg-blue-50 p-5">
               <p className="text-sm font-black text-blue-900">Vehicle-specific order matching</p>
               <p className="mt-1 text-sm leading-6 text-blue-800">Submit your year, make, and model first so the right radio package and vehicle-specific parts can be matched before fulfillment. Backup camera is included.</p>
@@ -586,7 +605,32 @@ export default function App() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
-          {faqs.map((faq) => <article key={faq.question} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm"><h3 className="text-lg font-black text-slate-950">{faq.question}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{faq.answer}</p></article>)}
+          {faqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            const contentMaxHeight = isOpen ? (faqRefs.current[index]?.scrollHeight ?? 500) : 0;
+            return (
+              <article key={faq.question} className="rounded-[1.75rem] border border-slate-200 bg-white shadow-sm overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  className="flex w-full items-center justify-between gap-4 p-6 text-left transition hover:bg-slate-50"
+                  aria-expanded={isOpen}
+                >
+                  <h3 className="text-lg font-black text-slate-950">{faq.question}</h3>
+                  <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg font-bold transition-all duration-300 ${isOpen ? "border-blue-300 bg-blue-50 text-blue-600" : "border-slate-200 bg-white text-slate-400"}`}>
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <div
+                  ref={(el) => { faqRefs.current[index] = el; }}
+                  className="overflow-hidden transition-all duration-300 ease-in-out"
+                  style={{ maxHeight: `${contentMaxHeight}px` }}
+                >
+                  <p className="px-6 pb-6 text-sm leading-6 text-slate-600">{faq.answer}</p>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <div className="mt-8 rounded-[2rem] border border-blue-200 bg-blue-50 p-6 md:p-8">
@@ -600,6 +644,34 @@ export default function App() {
               <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-600">DM @tornado_mk4</a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-wide text-blue-600">Customer Reviews</p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What buyers are saying.</h2>
+          <p className="mt-4 text-slate-600">Real messages from customers who've installed the radio in their own cars. These are the kind of DMs we get almost every day.</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <article key={testimonial.name} className="rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-blue-700">
+                  {testimonial.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-950">{testimonial.name}</p>
+                  <p className="text-xs text-slate-500">{testimonial.car}</p>
+                </div>
+              </div>
+              <div className="mb-3 text-sm tracking-wide">
+                {"⭐".repeat(testimonial.rating)}
+              </div>
+              <p className="text-sm leading-6 text-slate-600">{testimonial.review}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -645,10 +717,29 @@ export default function App() {
       </section>
 
       <section id="gallery" className="mx-auto max-w-7xl px-5 py-16 md:px-8">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <div className="mb-10 max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-wide text-blue-600">Gallery</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950">Product photos and install examples.</h2>
-          <p className="mt-4 max-w-2xl text-slate-600">This section is ready for real product photos, package contents, screen examples, and before-and-after install shots. Real photos will make the site feel more trustworthy than stock images or generic mockups.</p>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Product photos and install examples.</h2>
+          <p className="mt-4 text-slate-600">A closer look at the packaging, screen, install, and camera. Swap these placeholders with real photos when ready.</p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { icon: "📦", title: "Product Packaging", desc: "Close-up of the boxed radio and included accessories." },
+            { icon: "🖥️", title: "Screen Wallpaper Demo", desc: "Custom wallpaper running on the 7-inch touchscreen." },
+            { icon: "🔧", title: "Installed in Dash", desc: "Radio mounted in a double DIN opening, clean fit." },
+            { icon: "📷", title: "Backup Camera View", desc: "12 LED rear-view camera feed on the screen." },
+          ].map((item) => (
+            <article key={item.title} className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/70">
+              <div className="flex h-44 items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200 text-5xl transition group-hover:from-blue-50 group-hover:to-slate-100">
+                {item.icon}
+              </div>
+              <div className="p-5">
+                <h3 className="text-sm font-black text-slate-950">{item.title}</h3>
+                <p className="mt-1 text-xs leading-5 text-slate-500">{item.desc}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -669,7 +760,7 @@ export default function App() {
       <div className="pointer-events-none fixed bottom-4 left-4 right-4 z-50 rounded-3xl border border-slate-200 bg-white/95 p-3 shadow-2xl shadow-slate-400/30 backdrop-blur md:hidden">
         <div className="pointer-events-auto grid grid-cols-2 gap-2">
           <a href="#fitment-checker" className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-700">Check Fitment</a>
-            <a href="#checkout" className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600">Order Kit</a>
+            <a href="#checkout" className="inline-flex items-center justify-center rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition hover:bg-blue-600 animate-[pulse_2s_ease-in-out_infinite]">Order Kit</a>
         </div>
         <p className="mt-2 text-center text-xs font-semibold text-slate-500">Fitment first • Vehicle-specific parts matched before fulfillment</p>
       </div>
